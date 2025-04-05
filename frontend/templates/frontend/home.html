@@ -1,0 +1,39 @@
+{% extends 'frontend/layout/app.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+  <div class="card shadow-lg">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Weather in {{ weather_api.location.name }}, {{ weather_api.location.region }}</h4>
+    </div>
+    <div class="card-body">
+      <div class="row align-items-center">
+        <div class="col-md-3 text-center">
+          <img src="{{ weather_api.current.weather_icons.0 }}" alt="Weather Icon" class="img-fluid">
+          <h5 class="mt-2">{{ weather_api.current.weather_descriptions.0 }}</h5>
+        </div>
+        <div class="col-md-9">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Country:</strong> {{ weather_api.location.country }}</li>
+            <li class="list-group-item"><strong>Timezone:</strong> {{ weather_api.location.timezone_id }}</li>
+            <li class="list-group-item"><strong>Latitude:</strong> {{ weather_api.location.lat }}</li>
+            <li class="list-group-item"><strong>Longitude:</strong> {{ weather_api.location.lon }}</li>
+            <li class="list-group-item"><strong>Temperature:</strong> {{ weather_api.current.temperature }}°C (Feels like {{ weather_api.current.feelslike }}°C)</li>
+            <li class="list-group-item"><strong>Humidity:</strong> {{ weather_api.current.humidity }}%</li>
+            <li class="list-group-item"><strong>Wind:</strong> {{ weather_api.current.wind_speed }} km/h ({{ weather_api.current.wind_dir }})</li>
+            <li class="list-group-item"><strong>UV Index:</strong> {{ weather_api.current.uv_index }}</li>
+            <li class="list-group-item"><strong>Air Quality (PM2.5):</strong> {{ weather_api.current.air_quality.pm2_5 }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer text-muted text-center">
+      Local Time: {{ weather_api.location.localtime }}
+    </div>
+  </div>
+</div>
+{% endblock %}
