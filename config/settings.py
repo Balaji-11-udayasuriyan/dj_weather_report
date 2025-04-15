@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-s4*lar5w#kz7_j94ox#u29kxc4bfs!fk$-%rns8&lsh(!ga(3i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'dj-weather-report.onrender.com',
+]
 
 
 # Application definition
